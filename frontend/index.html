@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smart Movie Recommendations</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1 class="title">🎬 Smart Movie Recommendations</h1>
+      <p class="subtitle">AI-powered picks tailored to your movie taste</p>
+      <a href="#demo" class="btn">🎥 Try the Demo</a>
+    </div>
+  </section>
+  
+  
+
+  <!-- Problem & Solution -->
+<!-- Problem Section -->
+<section class="problem-section py-5" id="problem-section" style="background-color: #2c2c2c; color: #f8f9fa;">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-md-6 mb-3">
+        <img src="https://images.unsplash.com/photo-1527689368864-3a821dbccc34" 
+             alt="Overwhelmed viewer" 
+             class="img-fluid rounded shadow">
+      </div>
+      <div class="col-md-6">
+        <h2><i class="fas fa-exclamation-circle text-danger"></i> Too Many Choices?</h2>
+        <p>Feeling lost in a sea of streaming options? Most platforms offer generic suggestions that ignore your unique taste. That’s frustrating — and time-wasting.</p>
+        <p><strong>❌ Endless scrolling<br>❌ Repetitive genres<br>❌ Forgettable picks</strong></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Solution Section -->
+<section class="solution-section py-5" id="solution-section" style="background-color: #000; color: #f8f9fa;">
+  <div class="container">
+    <div class="row align-items-center flex-md-row-reverse">
+      <div class="col-md-6 mb-3">
+        <img src="https://media.istockphoto.com/id/1610418901/ro/fotografie/curs-online-de-e-learning-cu-atelier-de-scriere-a-documentelor-%C8%99i-list%C4%83-de-verificare-%C3%AEn.jpg?s=1024x1024&w=is&k=20&c=IQt25OzmU6ysDol2ps12s5XSZffRGoXsFnN7nqpbfDE=" 
+             alt="AI movie recommendation" 
+             class="img-fluid rounded shadow">
+      </div>
+      <div class="col-md-6">
+        <h2><i class="fas fa-check-circle text-success"></i> The Smart Solution</h2>
+        <p>Our AI-driven recommender doesn’t just guess — it understands. By analyzing genres, past viewings, and your intent, we offer movies that truly resonate with you.</p>
+        <p><strong>✅ Personalized picks<br>✅ Clear reasoning<br>✅ Instant suggestions</strong></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <!-- How It Works -->
+  <section class="section alt" id="how-it-works">
+    <h2>How It Works</h2>
+    <div class="grid">
+      <div class="card">
+        <div class="icon">🎬</div>
+        <h3>Pick Your Genres</h3>
+        <p>Select what you like—drama, sci-fi, thrillers, and more.</p>
+      </div>
+      <div class="card">
+        <div class="icon">📽️</div>
+        <h3>Add Watched Movies</h3>
+        <p>Tell the system what you've already seen to avoid repeats.</p>
+      </div>
+      <div class="card">
+        <div class="icon">🤖</div>
+        <h3>Get Smart Picks</h3>
+        <p>AI gives you spot-on recommendations with reasons to watch.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="section">
+    <h2>Features</h2>
+    <ul class="features">
+      <li><strong>🎯 Zero-Shot Classification</strong> – Advanced NLP to understand your preferences and match them to movies.</li>
+      <li><strong>🎥 TMDB Integration</strong> – Get movie posters, actors, genres, and more from a real-time API.</li>
+      <li><strong>🧠 LLaMA 3 Reasoning</strong> – See why a movie is right for you, explained in natural language.</li>
+      <li><strong>💾 Local Database</strong> – Fast data retrieval using an optimized SQLite backend.</li>
+    </ul>
+  </section>
+
+  <!-- Demo -->
+  <section id="demo" class="section py-5 bg-dark text-white">
+    <div class="container text-center">
+      <h2 class="mb-4">🎬 Try a Demo</h2>
+      <p>Select a genre to get sample recommendations.</p>
+  
+      <div class="form-group">
+        <select id="genreSelect" class="form-control w-50 mx-auto my-3">
+          <option value="">Choose a genre</option>
+          <option value="sci-fi">Sci-Fi</option>
+          <option value="drama">Drama</option>
+          <option value="comedy">Comedy</option>
+          <option value="action">Action</option>
+        </select>
+      </div>
+  
+      <button class="btn btn-warning" onclick="showMockRecommendations()">Get Recommendation</button>
+  
+      <div class="demo-section mt-5 text-center">
+        <h4 id="initial-title" class="text-white"></h4>
+        <div id="initial-results" class="d-flex flex-wrap justify-content-center gap-3"></div>
+      
+        <h4 id="final-title" class="text-white mt-5"></h4>
+        <div id="final-results" class="d-flex flex-wrap justify-content-center gap-3"></div>
+      </div>
+      <div class="text-center mt-4">
+        <button onclick="resetDemo()" class="btn btn-warning">🔁 Reset Demo</button>
+      </div>
+      
+    </div>
+  </section>
+  
+
+  <!-- About -->
+  <!-- About This Project -->
+<section class="section py-5" id="about">
+  <div class="container">
+    <h2 class="mb-4"><i class="fas fa-user-astronaut text-warning"></i> About This Project</h2>
+    <p class="lead">
+      This project started from a simple frustration — spending more time searching for a movie than actually watching one. I wanted to change that.
+    </p>
+    
+    <p>
+      With a deep love for cinema and a background in data, I set out to build something smarter: a system that doesn't just list popular titles but actually tries to understand your preferences. A tool that feels personal, not generic.
+    </p>
+
+    <p>
+      Every detail here — from how recommendations are made to the way results are presented — was created with the user experience in mind. If it helps you discover a new favorite film or saves you a few indecisive hours, then it’s done its job.
+    </p>
+
+    <hr class="my-4">
+
+    <h5 class="text-warning">📬 Let’s Stay in Touch!</h5>
+    <p>Got feedback, an idea, or just want to geek out over movies and machine learning? I’d love to hear from you!</p>
+    <ul class="list-unstyled">
+      <li>
+        <i class="fas fa-envelope"></i>
+        <p>
+          <strong>Contact me:</strong>
+          <span style="color: #ffc107; font-weight: bold;">ionescu10andreea20@stud.ase.ro</span>
+        </p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2025 SmartMovie. Built with 💻 & 🎬</p>
+    <!--p><a href="mailto:your@email.com">Contact Me</a></p-->
+  </footer>
+
+  <script src="script.js"></script>
+  <!-- Bootstrap JS & Dependencies -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
